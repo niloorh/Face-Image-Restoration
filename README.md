@@ -1,6 +1,6 @@
 # Face Image Restoration with U-Net
 
-This project was developed as the final project for the Machine Learning Fundamentals course. It presents a deep-learning pipeline for restoring degraded facial images using a U-Net-based convolutional architecture.A U-Net-style convolutional network is trained on aligned faces from the **CelebA** dataset and evaluated both in-distribution and on the independent **LFW** dataset.
+This project develops a deep-learning pipeline for restoring degraded facial images. A U-Net-style convolutional network is trained on aligned faces from the **CelebA** dataset and evaluated both in-distribution and on the independent **LFW** dataset.
 
 The model learns to reconstruct clean, high-resolution faces from inputs affected by resolution reduction, Gaussian noise, and blur while also preserving facial identity.
 
@@ -68,13 +68,9 @@ All internal convolutional layers use 3 × 3 kernels, padding, and ReLU activati
 
 The training objective combines pixel-level reconstruction and identity preservation:
 
-$$
-\mathcal{L}_{total}
-=
-\mathcal{L}_{L1}
-+
-0.1\,\mathcal{L}_{identity}
-$$
+```text
+Total Loss = L1 Reconstruction Loss + 0.1 × Identity Loss
+```
 
 The reconstruction term measures the absolute pixel difference between restored and reference images. The identity term compares embeddings produced by a pretrained **InceptionResnetV1** model trained on VGGFace2.
 
